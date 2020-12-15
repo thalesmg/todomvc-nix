@@ -1,5 +1,4 @@
 { pkgs }:
-
 let
   inherit (pkgs) stdenv lib;
 
@@ -10,7 +9,7 @@ let
   # the project inside Nix, then we cannot have internet so downloading from the outside is
   # not possible. Hence, we create `runJS` that tries to replace `run.js` inside the wasm-pack
   # npm package. Please refer to `pkgConfig` below.
-  runJS =  pkgs.writeScript "run.js" ''
+  runJS = pkgs.writeScript "run.js" ''
     #!/usr/bin/env node
     const { join } = require("path");
     const { spawnSync } = require("child_process");
